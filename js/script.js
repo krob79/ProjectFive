@@ -2,6 +2,47 @@ const gallery = document.getElementById('gallery');
 const searchContainer = document.querySelector('.search-container');
 let users = [];
 
+const filterMessage = document.createElement('DIV');
+filterMessage.id = "filterMessage";
+filterMessage.innerHTML = "<h3>No names found from your search.</h3>";
+gallery.appendChild(filterMessage);
+filterMessage.style.display = "none";
+
+const searchBar = document.createElement('INPUT');
+searchBar.placeholder = "Search For User";
+searchBar.className = "search-input";
+const searchButton = document.createElement('BUTTON');
+searchButton.className = "search-submit";
+searchButton.textContent = "Submit";
+searchButton.addEventListener('click', filterUsers);
+searchContainer.appendChild(searchBar);
+searchContainer.appendChild(searchButton);
+
+searchBar.addEventListener('input', filterUsers);
+
+function filterUsers(){
+    console.log("filter");
+    filterMessage.style.display = "none";
+    let i=0;
+    let word = searchBar.value;
+    let displayCount = 0;
+    users.forEach(user => {
+        let wholeName = user.name.first + " " +user.name.last;
+        let card = document.getElementById("card-"+i);
+        if(wholeName.toLowerCase().includes(word.toLowerCase())){
+            console.log(`${wholeName} includes '${word}'? ${wholeName.includes(word)}`);
+            card.style.display = "flex";
+            displayCount++;
+        }else{
+            card.style.display = "none";
+        }
+        i++;
+    });
+    if(displayCount < 1){
+        filterMessage.style.display = "flex";
+    }
+}
+
 createModal();
 const modal = document.querySelector('modal-info-contaioner');
 let currentModal = 0;
@@ -35,7 +76,6 @@ fetchData('https://randomuser.me/api/?results=12')
 function displayUsers(users){
     let id = 0;
     users.forEach(user => {
-        console.log("ID: " + id + " " +user.name.first);
         let img = user.picture.large;
         let n = `${user.name.first} ${user.name.last}`;
         let e = user.email;
