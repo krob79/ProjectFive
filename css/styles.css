@@ -261,7 +261,7 @@ header h1 {
 @media (min-width: 1024px) {
 
     .card:hover {
-        background: rgba(255, 255, 255, 1);
+        background: rgb(252, 246, 181);
         border: 1px solid rgba(50, 50, 50, 0.9);
     }
 

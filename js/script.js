@@ -242,7 +242,7 @@ function displayModal(index){
     //get that first bit of text from the ISO date string!
     let bSplit = users[index].dob.date.split("T")[0].split("-");
     //rearrange the bits to display month, date, year
-    let b = `Date of Birth: ${bSplit[1]}.${bSplit[2]}.${bSplit[0]}`;
+    let b = `Birthday: ${bSplit[1]}/${bSplit[2]}/${bSplit[0]}`;
     
     let modal = document.querySelector('.modal-container');
     
