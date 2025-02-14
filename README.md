@@ -2,6 +2,10 @@
 
 In this project, I created an employee directory by communicating with a third-party API from https://randomuser.me/.
 
+The information pulled in via a fetch request and displayed using JavaScript. 
+Users can click on each result which displays additional information in a modal. 
+Search feature filters users on the fly as the user types.
+
 ## Languages & Tools Used
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=blue&style=flat-square)
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&style=flat-square)
